@@ -48,6 +48,6 @@ df.to_csv("train_sample.csv")
 #    random_line=f.readline()
 #    o.write(random_line)
 #
-#
+#qqqqqqq
 #f.close()
 #o.close()
