@@ -47,7 +47,7 @@ df.to_csv("train_sample.csv")
 #    f.readline()
 #    random_line=f.readline()
 #    o.write(random_line)
-#
+#qweqweqweqweqweqweqwe
 #qqqqqqq
 #aaaa
 #f.close()qweqweqweqwe
