@@ -49,5 +49,6 @@ df.to_csv("train_sample.csv")
 #    o.write(random_line)
 #
 #qqqqqqq
+#aaaa
 #f.close()
 #o.close()
