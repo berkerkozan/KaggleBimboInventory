@@ -50,5 +50,5 @@ df.to_csv("train_sample.csv")
 #qweqweqweqweqweqweqwe
 #qqqqqqq
 #aaaa
-#f.close()qweqweqweqwe222334446666777999111122223333
+#f.close()qweqweqweqwe222334446666777999111122223333666
 #o.close()
