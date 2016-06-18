@@ -9,7 +9,7 @@ import seaborn as sns
 #output_notebook()
 
 def get_product_agg(cols):
-    df_train = pd.read_csv('input/train.csv', usecols = ['Cliente_ID','Producto_ID'] + cols,
+    df_train = pd.read_csv('input/train_sample_10000.csv', usecols = ['Cliente_ID','Producto_ID'] + cols,
                            dtype  = {'Cliente_ID': 'int32',
                                      'Producto_ID':'int32',
                                      'Demanda_uni_equil':'float32'})
@@ -29,7 +29,7 @@ def get_product_agg_test(cols):
     return agg
 
 agg1 = get_product_agg(['Demanda_uni_equil'])
-agg2 = get_product_agg2(['Demanda_uni_equil'])
+agg2 = get_product_agg_test(['Demanda_uni_equil'])
 
 
 
