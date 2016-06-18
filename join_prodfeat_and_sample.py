@@ -16,11 +16,11 @@ import scipy.sparse as sp
 import math
 from matplotlib.pyplot import hist
 
-products = pd.read_csv('input/products_features.csv')
-sample_train = pd.read_csv('input/train_sample_1000000.csv')
-sample_test = pd.read_csv('input/test.csv')
+products = pd.read_csv('../input/products_features.csv')
+sample_train = pd.read_csv('../input/train_sample_10000.csv')
+sample_test = pd.read_csv('../input/test.csv')
 
-result = pd.concat([products, sample_train], axis=1, join='inner')
+result = pd.concat([products, sample_train], axis=1, join='outer')
 #print result.head()
 result.fillna(0,inplace=True)
 testdata = pd.concat([products, sample_test], axis=1, join='outer')
@@ -39,7 +39,7 @@ et = ExtraTreesClassifier(n_estimators=100, max_depth=None, min_samples_split=1,
  
 columns = ['grams', 'ml', 'inches', 'pct', 'pieces', 'bim', 'mla', 'mta', 'tab', 'pan', 'mtb', 'lar', 'gbi', 'won', 'duo', 'tubo', 'tr', 'cu', 'sp', 'prom', 'fresa', 'dh', 'vainilla', 'deliciosas', 'blanco', 'chocolate']
  
-labels = result["Demanda_uni_equil"].values
+labels = result['Demanda_uni_equil'].values
 features = result[list(columns)].values
 test_features = testdata[list(columns)].values
 
@@ -84,5 +84,5 @@ pred_df_nozeros = pred_df.replace(to_replace=-1,value=2)
 #result.to_csv("input/submit_2222.csv", index=False)
 
 result = pd.concat([sample_test['id'], pred_df_nozeros], axis=1)
-result.to_csv("input/submit4.csv", index=False)
+result.to_csv("../output/submit4.csv", index=False)
 
