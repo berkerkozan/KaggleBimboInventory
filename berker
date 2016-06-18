@@ -1,0 +1,13 @@
+*
+3	53	Burritos Sincro 170g CU LON 53
+2	41	Bimbollos Ext sAjonjoli 6p 480g BIM 41
+should we take Lon or Cu lon as brand?
+
+*
+product_bag_words = vectorizer.fit_transform(products.short_name_processed).toarray()
+Productların isimlerini feature olarak vectorize 2-gram olarak feature..
+
+*
+df = (pd.merge(agg1.reset_index(), products, on='Producto_ID', how='left').
+      groupby('short_name')['Demanda_uni_equil_sum'].sum().sort_values(ascending=False))
+Here, group by is meaningless.
