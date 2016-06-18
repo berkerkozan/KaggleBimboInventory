@@ -1,0 +1,44 @@
+Yapılacaklar:
+0: Kodların daha temiz hale gelmesi ve dosya ve değişken isimlendirilmesi gibi şeylerin standarda oturması.
+
+1: Products Tabla üzerinden featureların oluşturulması ve sparse matrix.
+Feature olarak, isimler ve kg gibi şeyleri çıkartan bir script zaten mevcut, biraz modifiye edilerek kullanılabilir.
+Bir iki örnek:
+https://www.kaggle.com/vykhand/grupo-bimbo-inventory-demand/exploring-products/
+https://www.kaggle.com/anokas/grupo-bimbo-inventory-demand/exploratory-data-analysis
+
+Yapı olarak:
+TABLE1 NAME: Prod_Features_Sparse
+Prod. ID
+g
+ml
+pieces
+AA product name
+Manina gusto
+...
+...
+ZZ product name
+
+
+Diye düşündüm.. Bunlara product name dışında, bu ekmektir, bu çikolatalıdır gibi özellikler ek kolon olarak eklenebilir..
+Böyle olunca yaklaşık 1000 kolon gibi bir şey çıkıyor.
+
+Bunu nasıl sparse matrix yaparız?
+http://docs.scipy.org/doc/scipy/reference/sparse.html#usage-information
+Burada bir şeyler var ama bu elimizdeki data hangi tipe daha uygun ve nasıl dönüştürülür ona bakmak lazım.
+
+2: Train datasındaki agencia id ve cliente ID’nin sparse matrix’e çevrilmesi (data oılarak demanda uni, yani label olması)
+
+TABLE2 NAME: Demanda_on_Agencia_Cliente_Sparse
+Agencia_1
+Agencia_2
+..
+Cliente_1
+Cliente_2
+...
+
+
+3: Table 1 ve 2’nin join edilmesi ve prod ID’nin çıkarılması.
+TABLE3 NAME: X
+
+X’in train/test olarak ayrılması ve çeşitli metodlarla train edilmesi.

@@ -1,0 +1,13 @@
+10_sample_creator.py
+    Creates samples from test and training data.
+
+
+first.py seninle baktığımız adamın en basit submission yapan örneği
+get_product_tokens.py gereksiz. product nameden rakamları filan siliyor
+get_sample_training, test -> test ve training csv'lerinden ufak örnek çıkartmak için.
+joinprodfeat... bu ilk submissionları yapmak için kullandığım kod. productlar için kg mg ve sık kullanılan kelimeleri kullanarak matrix filan yapıyor.
+pre_process.py bugün attığım elemanın product analizi grafikli filan. > full datayla çalıştıramadım na value filan diyor ama sample ile çalıştı.
+pre_process2.py üsttekini değiştirerek ypamaya çalıştığmı hede. şu anda çalışmıyor.
+process_products mg kg filan yapan kodun orijinal hali
+product_features > product içinde geçen sık keliemeleri bulan hede.
+temp > temp.
