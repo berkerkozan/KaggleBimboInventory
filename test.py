@@ -1,1 +1,1 @@
-qwe
+print("Wassup motoherfucker")
