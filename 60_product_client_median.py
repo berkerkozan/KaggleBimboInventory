@@ -46,4 +46,4 @@ df_test['Demanda_uni_equil'] = df_test[['ProductId', 'ClientId']]. \
     apply(lambda x: gen_output(x), axis=1)
 df_submit = df_test[['id', 'Demanda_uni_equil']]
 df_submit = df_submit.set_index('id')
-df_submit.to_csv('naive_product_client_median.csv')
+df_submit.to_csv('../output/naive_product_client_median.csv')
