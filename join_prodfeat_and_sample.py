@@ -68,21 +68,16 @@ test_features = testdata[list(columns)].values
 regr = linear_model.LinearRegression()
 print("so far ok")
 # Train the model using the training sets
-our_wonderful_model = regr.fit(features, labels) 
+our_wonderful_model = regr.fit(features, labels)
  
 prediction = regr.predict(test_features)
 pred_int = prediction.astype(int)
 pred_df = pd.DataFrame({'Demanda_uni_equil': pred_int})
 
-pred_df = pred_df.fillna(value=6)
+pred_df = pred_df.fillna(value=2)
 pred_df_nozeros = pred_df.replace(to_replace=0,value=2) 
 pred_df_nozeros = pred_df.replace(to_replace=-1,value=2) 
 
-
-#pred_df['Demanda_uni_equil'] = 2
-#result = pd.concat([sample_test['id'], pred_df], axis=1)
-#result.to_csv("input/submit_2222.csv", index=False)
-
 result = pd.concat([sample_test['id'], pred_df_nozeros], axis=1)
-result.to_csv("../output/submit4.csv", index=False)
+result.to_csv("../output/submit5.csv", index=False)
 

@@ -1,5 +1,3 @@
-test = '../input/test.csv'
-
 # Uses the entire dataset to run and compute the required medians.
 
 # This Python 3 environment comes with many helpful analytics libraries installed

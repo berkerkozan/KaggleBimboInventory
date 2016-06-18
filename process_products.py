@@ -16,14 +16,14 @@ from sklearn.preprocessing import OneHotEncoder
 from subprocess import check_output
 
 #print(check_output(["ls", ""]).decode("utf8"))
-town = pd.read_csv('input/town_state.csv')
+town = pd.read_csv('../input/town_state.csv')
 town.info()
 tn = pd.concat([town.Agencia_ID,
                 pd.get_dummies(town.State),
                 pd.get_dummies(town.Town)],
               axis=1)
-tn.to_csv('input/town_encoded.csv', index=False)
-products = pd.read_csv('input/producto_tabla.csv')
+tn.to_csv('../input/town_encoded.csv', index=False)
+products = pd.read_csv('../input/producto_tabla.csv')
 products.info()
 products['grams'] = products.NombreProducto.str.extract('.* (\d+)g.*', expand=False)
 products['ml'] = products.NombreProducto.str.extract('.* (\d+)ml.*', expand=False)
@@ -36,10 +36,10 @@ pr = pd.concat([products.drop('NombreProducto', axis=1),
                 pd.get_dummies(labels)],
                axis=1)
 pr.info()
-pr.to_csv('input/products_encoded.csv', index=False)
-clients = pd.read_csv('input/cliente_tabla.csv')
+pr.to_csv('../input/products_encoded.csv', index=False)
+clients = pd.read_csv('../input/cliente_tabla.csv')
 clients.info()
 clients.NombreCliente.replace(['SIN NOMBRE',
                                'NO IDENTIFICADO'], np.nan, inplace=True)
 clients.info()
-clients.to_csv('input/clients_encoded.csv', index=False)
+clients.to_csv('../input/clients_encoded.csv', index=False)
