@@ -1,6 +1,8 @@
 Yapılacaklar:
 0: Kodların daha temiz hale gelmesi ve dosya ve değişken isimlendirilmesi gibi şeylerin standarda oturması.
 
+todo config.py oluşturulacak.
+
 1: Products Tabla üzerinden featureların oluşturulması ve sparse matrix.
 Feature olarak, isimler ve kg gibi şeyleri çıkartan bir script zaten mevcut, biraz modifiye edilerek kullanılabilir.
 Bir iki örnek:
