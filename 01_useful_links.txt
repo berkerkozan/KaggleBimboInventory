@@ -1,4 +1,11 @@
 
+http://scikit-learn.org/stable/modules/scaling_strategies.html
+    Modeli satır satır okuyarak iyileştirmek için.
+
+http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor
+    Linear regression'ı kısım kısım yapmak için.. (train'den her seferinde 1000'lik data alarak birkaç pss yapmak mümkün olabilir)
+
+
 
 https://www.kaggle.com/vykhand/grupo-bimbo-inventory-demand/exploring-products/
 https://www.kaggle.com/anokas/grupo-bimbo-inventory-demand/exploratory-data-analysis
