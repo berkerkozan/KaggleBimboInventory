@@ -35,8 +35,8 @@ df_train = pd.read_csv('../input/train_sample_100.csv')
 
 print("train data read")
 # Make client ID's feature
-cliente_id_list = df_train['Cliente_ID']
-# agencia_id_list = df_train['Agencia_ID']
+cliente_id_list = df_train['Cliente_ID']  ## todo client id should be obtained from client_tabla instead.
+# agencia_id_list = df_train['Agencia_ID']  ## todo this can be obtained from the town_state if needed.
 
 # df_train = pd.concat([df_train.drop('Agencia_ID', axis=1), pd.get_dummies(agencia_id_list)],axis=1)
 df_train = pd.concat([df_train.drop('Cliente_ID', axis=1), pd.get_dummies(cliente_id_list)], axis=1)
@@ -71,13 +71,14 @@ our_wonderful_model = regr.fit(features, labels)
 print("model built")
 
 pred_df = pd.DataFrame(columns=['id', 'Demanda_uni_equil'])
+print(pred_df.columns)
 
-# Load, join & predict test.csv line by line. todo burada çalışmayan bir şey var ne olduğunu çözemedim.. temp kısımlarını yazamıyor bi rtürlü.
+# Load, join & predict test.csv line by line. todo something is wrong. can't write the predictions to teh pred_df.
 for df_test in pd.read_csv('../input/test_sample_1000.csv', chunksize=100):
     df_test = pd.concat([df_test.drop('Cliente_ID', axis=1), pd.get_dummies(cliente_id_list)], axis=1)
     df_test = df_test.join(products, on='Producto_ID', lsuffix='_t')
     df_test.fillna(value=0, inplace=True)
-    test_features = df_test[list(columns)].values
+    test_features = df_test[columns].values
     prediction = our_wonderful_model.predict(test_features)
     pred_int = prediction.astype(int)
     print("id",df_test['id'])
