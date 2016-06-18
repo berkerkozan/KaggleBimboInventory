@@ -3,3 +3,11 @@
 https://www.kaggle.com/vykhand/grupo-bimbo-inventory-demand/exploring-products/
 https://www.kaggle.com/anokas/grupo-bimbo-inventory-demand/exploratory-data-analysis
 
+http://regexr.com/
+    String alanlar içerisinde data seçip çıkartmak için (feature oluşturulurken mesela)
+
+https://stharrold.github.io/20151208-ipynb-on-gce-from-chrome.html
+    Running iPython Notebook on Google Cloud
+
+https://github.com/zygmuntz/phraug
+    Data setleri ilk başta hazırlarken kullanılabilecek ufak scriptler..

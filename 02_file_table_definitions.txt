@@ -1,5 +1,15 @@
+00_todo_tracking.txt
+    For tracking todo_items.
+
+01_useful_links.txt
+
+
 10_sample_creator.py
     Creates samples from test and training data.
+
+60_product_client_median.py
+    code from here: https://www.kaggle.com/armalali/grupo-bimbo-inventory-demand/benchmark-medians/code
+    uses median product client values and creates submission.
 
 
 first.py seninle baktığımız adamın en basit submission yapan örneği
