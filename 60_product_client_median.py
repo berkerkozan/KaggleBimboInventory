@@ -23,6 +23,8 @@ global_median = np.median(df_train['AdjDemand'])
 prod_median_dict2 = prod_median_tab2.to_dict()
 prod_median_dict = prod_median_tab.to_dict()
 
+# output the median data to another file (to create clusters)
+# prod_median_tab2.to_csv('../input/client_prod_median.csv')
 
 def gen_output(key):
     key = tuple(key)
@@ -38,12 +40,10 @@ def gen_output(key):
 
 
 df_test = pd.read_csv('../input/test.csv')
-df_test.columns = ['id', 'WeekNum', 'DepotId', 'ChannelId', 'RouteId', 'ClientId', \
-                   'ProductId']
+df_test.columns = ['id', 'WeekNum', 'DepotId', 'ChannelId', 'RouteId', 'ClientId', 'ProductId']
 
 # Generating the output
-df_test['Demanda_uni_equil'] = df_test[['ProductId', 'ClientId']]. \
-    apply(lambda x: gen_output(x), axis=1)
+df_test['Demanda_uni_equil'] = df_test[['ProductId', 'ClientId']].apply(lambda x: gen_output(x), axis=1)
 df_submit = df_test[['id', 'Demanda_uni_equil']]
 df_submit = df_submit.set_index('id')
 df_submit.to_csv('../output/naive_product_client_median.csv')
