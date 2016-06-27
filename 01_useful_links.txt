@@ -18,3 +18,6 @@ https://stharrold.github.io/20151208-ipynb-on-gce-from-chrome.html
 
 https://github.com/zygmuntz/phraug
     Data setleri ilk başta hazırlarken kullanılabilecek ufak scriptler..
+
+http://stackoverflow.com/questions/31268998/how-to-merge-two-large-numpy-arrays-if-slicing-doesnt-resolve-memory-error
+    vstack memory konusu nasıl çözülür
