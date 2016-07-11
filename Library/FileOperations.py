@@ -11,5 +11,5 @@ def createSampleFile(filePath,sampleSize):
     df = pd.read_csv(filePath, skiprows=skip)
 
     filePath = filePath.replace("train", "train_" + str(sampleSize)).replace("test", "test_" + str(sampleSize))
-    df.to_csv(filePath)
+    df.to_csv(filePath,index=False)
     print "created "+ filePath
