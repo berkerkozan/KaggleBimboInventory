@@ -54,51 +54,48 @@ test = pd.read_csv('../input/test.csv', usecols=['id', 'Cliente_ID', 'Producto_I
 
 # Process product data.
 
-products = pd.read_csv("../input/producto_tabla.csv")
-
-print('product csv read complete')
-
-products['short_name'] = products.NombreProducto.str.extract('^(\D*)', expand=False)
-# products['brand'] = products.NombreProducto.str.extract('^.+\s(\D+) \d+$', expand=False)
-# w = products.NombreProducto.str.extract('(\d+)(Kg|g)', expand=True)
-# products['weight'] = w[0].astype('float') * w[1].map({'Kg': 1000, 'g': 1})
-# products['pieces'] = products.NombreProducto.str.extract('(\d+)p ', expand=False).astype('float')
-
-products['short_name_processed'] = (products['short_name'].map(
-    lambda x: " ".join([i for i in x.lower().split() if i not in nltk.corpus.stopwords.words("spanish")])))
-stemmer = SnowballStemmer("spanish")
-products['short_name_processed'] = (
-products['short_name_processed'].map(lambda x: " ".join([stemmer.stem(i) for i in x.lower().split()])))
-
-short_name_processed_list = products['short_name_processed'].unique()
-
-# products = products.drop(['short_name', 'short_name_processed', 'NombreProducto'], axis=1)
-# product_ids = products.astype(np.uint16)
+# products = pd.read_csv("../input/producto_tabla.csv")
 #
-# product_short_names =
-
-products = pd.concat([products.drop(['short_name', 'short_name_processed', 'NombreProducto'], axis=1), pd.get_dummies(short_name_processed_list)], axis=1)
-products = products.drop([''], axis=1)
-
-bool_cols = products.columns[1:]
-products['Producto_ID'] = products['Producto_ID'].astype(np.uint16, errors='coerce')
-products[bool_cols] = products[bool_cols].fillna(0.0).astype(np.int8, errors='coerce')
-
-
-# products = products.astype(np.int8, )
-# products.fillna(value=0, inplace=True)
-
-print('products shape:', products.shape)
-print('product features generated')
-
-# Join data and products
-train = train.join(products, on='Producto_ID', lsuffix='_t')
-train.fillna(value=0, inplace=True)
-
-print('train data joined')
-
-test = test.join(products, on='Producto_ID', lsuffix='_t')
-test.fillna(value=0, inplace=True)
+# print('product csv read complete')
+#
+# products['short_name'] = products.NombreProducto.str.extract('^(\D*)', expand=False)
+# # products['brand'] = products.NombreProducto.str.extract('^.+\s(\D+) \d+$', expand=False)
+# # w = products.NombreProducto.str.extract('(\d+)(Kg|g)', expand=True)
+# # products['weight'] = w[0].astype('float') * w[1].map({'Kg': 1000, 'g': 1})
+# # products['pieces'] = products.NombreProducto.str.extract('(\d+)p ', expand=False).astype('float')
+#
+# products['short_name_processed'] = (products['short_name'].map(
+#     lambda x: " ".join([i for i in x.lower().split() if i not in nltk.corpus.stopwords.words("spanish")])))
+# stemmer = SnowballStemmer("spanish")
+# products['short_name_processed'] = (
+# products['short_name_processed'].map(lambda x: " ".join([stemmer.stem(i) for i in x.lower().split()])))
+#
+# short_name_processed_list = products['short_name_processed'].unique()
+#
+#
+#
+# products = pd.concat([products.drop(['short_name', 'short_name_processed', 'NombreProducto'], axis=1), pd.get_dummies(short_name_processed_list)], axis=1)
+# products = products.drop([''], axis=1)
+#
+# bool_cols = products.columns[1:]
+# products['Producto_ID'] = products['Producto_ID'].astype(np.uint16, errors='coerce')
+# products[bool_cols] = products[bool_cols].fillna(0.0).astype(np.int8, errors='coerce')
+#
+#
+# # products = products.astype(np.int8, )
+# # products.fillna(value=0, inplace=True)
+#
+# print('products shape:', products.shape)
+# print('product features generated')
+#
+# # Join data and products
+# train = train.join(products, on='Producto_ID', lsuffix='_t')
+# train.fillna(value=0, inplace=True)
+#
+# print('train data joined')
+#
+# test = test.join(products, on='Producto_ID', lsuffix='_t')
+# test.fillna(value=0, inplace=True)
 
 print('test data joined')
 print('train shape', train.shape)
